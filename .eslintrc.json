@@ -57,10 +57,12 @@
         "plugin:@angular-eslint/recommended",
         "plugin:@angular-eslint/template/process-inline-templates",
         "airbnb-base",
-        "airbnb-typescript/base"
+        "airbnb-typescript/base",
+        "plugin:prettier/recommended"
       ],
       "plugins": [
-        "@typescript-eslint"
+        "@typescript-eslint",
+        "prettier"
       ],
       "rules": {
         "@angular-eslint/directive-selector": [
