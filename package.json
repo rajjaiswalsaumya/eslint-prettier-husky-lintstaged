@@ -15,7 +15,11 @@
     "watch": "ng build --watch --configuration development"
   },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx,md,html,css}": "eslint --cache --fix"
+    "*.{js,jsx,ts,tsx,html,css}": "npx eslint --cache --fix",
+    "*.{md}": [
+      "prettier --write",
+      "git add"
+    ]
   },
   "dependencies": {
     "@angular/animations": "~12.2.0",
