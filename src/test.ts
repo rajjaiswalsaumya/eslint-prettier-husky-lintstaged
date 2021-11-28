@@ -4,21 +4,23 @@ import 'zone.js/testing';
 import { getTestBed } from '@angular/core/testing';
 import {
   BrowserDynamicTestingModule,
-  platformBrowserDynamicTesting
+  platformBrowserDynamicTesting,
 } from '@angular/platform-browser-dynamic/testing';
 
 declare const require: {
+  /* eslint-disable no-unused-vars */
   context(path: string, deep?: boolean, filter?: RegExp): {
     keys(): string[];
     <T>(id: string): T;
   };
+  /* eslint-enable no-unused-vars */
 };
 
 // First, initialize the Angular testing environment.
 getTestBed().initTestEnvironment(
   BrowserDynamicTestingModule,
   platformBrowserDynamicTesting(),
-  { teardown: { destroyAfterEach: true }},
+  { teardown: { destroyAfterEach: true } },
 );
 
 // Then we find all the tests.
