@@ -3,11 +3,50 @@
   "ignorePatterns": [
     "projects/**/*"
   ],
+  "env": {
+    "es6": true,
+    "node": true,
+    "browser": true
+  },
+  "settings": {
+    // Append 'ts' extension to Airbnb 'import/resolver' setting
+    "import/resolver": {
+      "node": {
+        "extensions": [
+          ".js",
+          ".ts",
+          ".json"
+        ]
+      }
+    },
+    // Append 'ts' extension to Airbnb 'import/extensions' setting
+    "import/extensions": [
+      ".js",
+      ".ts",
+      ".mjs"
+    ]
+  },
   "overrides": [
+    {
+      "env": {
+        "jasmine": true
+      },
+      "extends": [
+        "plugin:jasmine/recommended"
+      ],
+      "files": [
+        "src/**/*.spec.ts",
+        "src/**/*.d.ts"
+      ],
+      "plugins": [
+        "jasmine"
+      ]
+    },
     {
       "files": [
         "*.ts"
       ],
+      "parser": "@typescript-eslint/parser",
       "parserOptions": {
         "project": [
           "tsconfig.json"
@@ -16,7 +55,12 @@
       },
       "extends": [
         "plugin:@angular-eslint/recommended",
-        "plugin:@angular-eslint/template/process-inline-templates"
+        "plugin:@angular-eslint/template/process-inline-templates",
+        "airbnb-base",
+        "airbnb-typescript/base"
+      ],
+      "plugins": [
+        "@typescript-eslint"
       ],
       "rules": {
         "@angular-eslint/directive-selector": [
@@ -33,6 +77,21 @@
             "type": "element",
             "prefix": "app",
             "style": "kebab-case"
+          }
+        ],
+        "max-len": [
+          "error",
+          {
+            "code": 180
+          }
+        ],
+        "import/prefer-default-export": "off",
+        "import/no-unresolved": "off",
+        "class-methods-use-this": "off",
+        "@typescript-eslint/unbound-method": [
+          "error",
+          {
+            "ignoreStatic": true
           }
         ]
       }
