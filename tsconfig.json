@@ -2,6 +2,12 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "paths": {
+      "@sym-ui/sedr": [
+        "dist/sym-ui/sedr/sym-ui-sedr",
+        "dist/sym-ui/sedr"
+      ]
+    },
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,

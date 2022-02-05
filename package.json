@@ -5,8 +5,12 @@
   "scripts": {
     "build": "ng build",
     "build:ci": "ng build --configuration production",
-    "lint": "ng lint",
-    "lint:fix": "ng lint --fix",
+    "lint": "npm run lint:lib && npm run lint:app",
+    "lint:app": "node ./node_modules/@angular/cli/bin/ng lint eslint-prettier-husky-lintstaged",
+    "lint:app:fix": "node ./node_modules/@angular/cli/bin/ng lint eslint-prettier-husky-lintstaged --cache --fix",
+    "lint:fix": "npm run lint:lib:fix && npm run lint:app:fix",
+    "lint:lib": "node ./node_modules/@angular/cli/bin/ng lint @sym-ui/sedr",
+    "lint:lib:fix": "node ./node_modules/@angular/cli/bin/ng lint @sym-ui/sedr --cache --fix",
     "ng": "ng",
     "prepare": "husky install",
     "start": "ng serve",
@@ -67,6 +71,7 @@
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "~1.7.0",
     "lint-staged": "^12.1.2",
+    "ng-packagr": "^12.1.1",
     "prettier": "^2.5.0",
     "typescript": "~4.3.5"
   }

@@ -108,8 +108,48 @@
           "builder": "@angular-eslint/builder:lint",
           "options": {
             "lintFilePatterns": [
-              "src/**/*.ts",
-              "src/**/*.html"
+              "./src/**/*.ts",
+              "./src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "@sym-ui/sedr": {
+      "projectType": "library",
+      "root": "projects/sym-ui/sedr",
+      "sourceRoot": "projects/sym-ui/sedr/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/sym-ui/sedr/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/sym-ui/sedr/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/sym-ui/sedr/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/sym-ui/sedr/src/test.ts",
+            "tsConfig": "projects/sym-ui/sedr/tsconfig.spec.json",
+            "karmaConfig": "projects/sym-ui/sedr/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/sym-ui/sedr/**/*.ts",
+              "projects/sym-ui/sedr/**/*.html"
             ]
           }
         }
